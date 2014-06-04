@@ -1,0 +1,27 @@
+{
+  "name": "aster-generate",
+  "version": "0.0.1",
+  "description": "JavaScript generator for aster.",
+  "author": "Ingvar Stepanyan <me@rreverser.com> (https://github.com/RReverser)",
+  "repository": "asterjs/aster-generate",
+  "license": "MIT",
+  "keywords": [
+    "aster-plugin",
+    "ast",
+    "javascript",
+    "generate"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "escodegen": "^1.3.3",
+    "rx": "^2.2.24"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "esprima": "^1.2.2",
+    "mocha": "*"
+  }
+}
