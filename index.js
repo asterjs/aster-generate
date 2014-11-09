@@ -1,15 +1,18 @@
 'use strict';
 
 var Rx = require('rx');
-var generate = require('escodegen').generate;
+var escodegen = require('escodegen');
 
 module.exports = function (options) {
 	options = options || {};
+	if (typeof options.format === 'string') {
+		options.format = escodegen[options.format];
+	}
 	options.sourceMapWithCode = true;
 
 	return function (files) {
 		return files.flatMap(function (file) {
-			var result = generate(file.program, options);
+			var result = escodegen.generate(file.program, options);
 
 			var code = result.code;
 			var map = result.map;
