@@ -4,7 +4,8 @@
 
 var assert = require('chai').assert,
 	Rx = require('rx'),
-	parse = require('esprima').parse,
+	esprima = require('esprima'),
+	parse = esprima.parse,
 	generate = require('..');
 
 it('test', function (done) {
@@ -26,10 +27,15 @@ it('test', function (done) {
 			}
 		];
 
+	var index = 0;
 	// simulating file sequence and applying transformation
 	generate({comment: true, sourceMap: true})(Rx.Observable.fromArray(input))
 	// checking against array of expected results iteratively
-	.zip(expected, assert.deepEqual)
+	.do(function (file) {
+		assert.deepEqual(file, expected[index++]);
+	})
+
+	// .zip(expected, assert.deepEqual)
 	// subscribing to check results
 	.subscribe(function () {}, done, done);
 });

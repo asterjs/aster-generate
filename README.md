@@ -15,6 +15,24 @@ However, you should use it directly when developing bindings for external build 
 
 Supports any options from [escodegen documentation](https://github.com/Constellation/escodegen/wiki/API).
 
+### option.generator
+
+Allow passing a custom Obserable generator, either directly or as a factory function.
+
+The `defaultGenerator` used if no `generator` option passed:
+
+```js
+function defaultGenerator(options) {
+    return function(files) {
+        return files.flatMap(function (file) {
+            var result = escodegen.generate(file.program, options);
+            // ...
+            return Rx.Observable.fromArray(files);
+        })
+    }
+}
+```
+
 ## License
 
 [MIT License](http://en.wikipedia.org/wiki/MIT_License)
