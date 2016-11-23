@@ -3,14 +3,8 @@
 var Rx = require('rx');
 var escodegen = require('escodegen');
 
-module.exports = function (options) {
-	options = options || {};
-	if (typeof options.format === 'string') {
-		options.format = escodegen[options.format];
-	}
-	options.sourceMapWithCode = true;
-
-	return function (files) {
+function defaultGenerator(options) {
+	return function(files) {
 		return files.flatMap(function (file) {
 			var result = escodegen.generate(file.program, options);
 
@@ -38,6 +32,17 @@ module.exports = function (options) {
 			}
 
 			return Rx.Observable.fromArray(files);
-		});
-	};
+		})
+	}
+};
+
+module.exports = function (options) {
+	options = options || {};
+	if (typeof options.format === 'string') {
+		options.format = escodegen[options.format];
+	}
+	options.sourceMapWithCode = true;
+
+	let generator = options.generator || defaultGenerator
+	return typeof generator === 'function' ? generator(options) : generator
 };

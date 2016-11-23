@@ -76,13 +76,13 @@ escodegen@^1.8.1:
   optionalDependencies:
     source-map "~0.2.0"
 
+esprima:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/esprima/-/esprima-3.1.1.tgz#02dbcc5ac3ece81070377f99158ec742ab5dda06"
+
 esprima@^2.7.1:
   version "2.7.3"
   resolved "https://registry.yarnpkg.com/esprima/-/esprima-2.7.3.tgz#96e3b70d5779f6ad49cd032673d1c312767ba581"
-
-esprima@jquery/esprima#master:
-  version "4.0.0-dev"
-  resolved "https://codeload.github.com/jquery/esprima/tar.gz/9d83d91b6347206c649de72715a0b28cd36519ba"
 
 estraverse@^1.9.1:
   version "1.9.3"
