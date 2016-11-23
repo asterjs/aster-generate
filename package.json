@@ -16,12 +16,12 @@
     "test": "mocha"
   },
   "dependencies": {
-    "escodegen": "^1.4.1",
-    "rx": "^2.3.11"
+    "escodegen": "^1.8.1",
+    "rx": "^4.1.0"
   },
   "devDependencies": {
     "chai": "*",
-    "esprima": "^1.2.2",
+    "esprima": "jquery/esprima#master",
     "mocha": "*"
   }
 }
